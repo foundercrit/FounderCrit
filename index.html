@@ -1,0 +1,804 @@
+bash
+
+cat /mnt/user-data/outputs/foundercrit_landing.html
+Output
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FounderCrit — Peer Critique for Founders</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal-dark: #085041;
+    --teal-mid: #0F6E56;
+    --teal: #1D9E75;
+    --teal-light: #5DCAA5;
+    --teal-pale: #E1F5EE;
+    --cream: #FAF8F4;
+    --ink: #1A1A18;
+    --ink-mid: #444441;
+    --ink-light: #888780;
+    --border: #E2E0D8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--border);
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .logo {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--teal-mid);
+    letter-spacing: -0.3px;
+  }
+
+  .nav-cta {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--teal-mid);
+    border: 1px solid var(--teal-mid);
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .nav-cta:hover { background: var(--teal-mid); color: white; }
+
+  /* HERO */
+  .hero {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 40px 60px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--teal-mid);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--ink-mid);
+    max-width: 540px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+
+  /* CTA BUTTONS */
+  .btn-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .btn-primary {
+    background: var(--teal-mid);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .btn-primary:hover { background: var(--teal-dark); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--teal-mid);
+    border: 1px solid var(--teal-mid);
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .btn-secondary:hover { background: var(--teal-pale); }
+
+  .hero-note {
+    font-size: 13px;
+    color: var(--ink-light);
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 48px;
+    height: 2px;
+    background: var(--teal-light);
+    margin: 0 auto;
+  }
+
+  /* THE PROBLEM */
+  .section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 40px;
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+
+  p { color: var(--ink-mid); margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* PROBLEM LIST */
+  .problem-list {
+    list-style: none;
+    margin: 28px 0;
+  }
+
+  .problem-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--ink-mid);
+    font-size: 15px;
+  }
+
+  .problem-list li:first-child { border-top: 1px solid var(--border); }
+
+  .problem-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #FEE9E9;
+    color: #C0392B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* HOW IT WORKS */
+  .how-bg {
+    background: var(--teal-dark);
+    padding: 64px 40px;
+  }
+
+  .how-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .how-bg .section-label { color: var(--teal-light); }
+  .how-bg h2 { color: white; }
+  .how-bg p { color: #9FE1CB; }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .step {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  .step-num {
+    font-family: 'Lora', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--teal-light);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .step-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .step-body {
+    font-size: 14px;
+    color: #9FE1CB;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* THE RULE */
+  .rule-block {
+    background: var(--teal-pale);
+    border-left: 4px solid var(--teal);
+    border-radius: 0 10px 10px 0;
+    padding: 28px 32px;
+    margin: 40px 0 0;
+  }
+
+  .rule-text {
+    font-family: 'Lora', serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 600;
+    color: var(--teal-dark);
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  /* RUBRIC */
+  .rubric-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  @media (max-width: 560px) { .rubric-grid { grid-template-columns: 1fr; } }
+
+  .rubric-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .rubric-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--teal-mid);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .rubric-body {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* WHO */
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  .who-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .who-title {
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .who-desc { color: var(--ink-light); margin: 0; font-size: 13px; }
+
+  /* FOUNDER NOTE */
+  .founder-bg {
+    background: white;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 40px;
+  }
+
+  .founder-inner {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  blockquote {
+    font-family: 'Lora', serif;
+    font-size: clamp(18px, 3vw, 22px);
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    position: relative;
+    padding-left: 24px;
+    border-left: 3px solid var(--teal-light);
+  }
+
+  .founder-sig {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .founder-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--teal-pale);
+    border: 2px solid var(--teal-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    color: var(--teal-mid);
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .founder-name {
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 14px;
+  }
+
+  .founder-role { font-size: 13px; color: var(--ink-light); }
+
+  /* FORMS */
+  .forms-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 40px;
+  }
+
+  .forms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 640px) { .forms-grid { grid-template-columns: 1fr; } }
+
+  .form-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+  }
+
+  .form-card.featured {
+    border-color: var(--teal);
+    border-width: 2px;
+  }
+
+  .form-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: var(--teal-pale);
+    color: var(--teal-mid);
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+
+  .form-title {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .form-desc {
+    font-size: 14px;
+    color: var(--ink-light);
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .form-field {
+    margin-bottom: 14px;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-mid);
+    margin-bottom: 6px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    transition: border-color 0.15s;
+    outline: none;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--teal);
+  }
+
+  textarea { resize: vertical; min-height: 80px; }
+
+  .form-submit {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  /* SUCCESS STATE */
+  .success-msg {
+    display: none;
+    background: var(--teal-pale);
+    border: 1px solid var(--teal-light);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--teal-dark);
+    margin-top: 12px;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 40px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--teal-mid);
+    margin-bottom: 8px;
+  }
+
+  .footer-note {
+    font-size: 13px;
+    color: var(--ink-light);
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 16px 20px; }
+    .hero, .section, .forms-section { padding-left: 20px; padding-right: 20px; }
+    .how-bg { padding-left: 20px; padding-right: 20px; }
+    .founder-bg { padding-left: 20px; padding-right: 20px; }
+    footer { padding: 24px 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">FounderCrit</div>
+  <a href="#join" class="nav-cta">Join the waitlist</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="eyebrow">Now accepting pilot applications</span>
+  <h1>The feedback you actually need — from someone who <em>needs it too</em></h1>
+  <p class="hero-sub">FounderCrit is a structured peer critique platform for founders. Give an honest critique. Get an honest critique back. No fluff. No cheerleading. Just real feedback from a peer who's equally invested.</p>
+  <div class="btn-group">
+    <a href="#join" class="btn-primary">Join the waitlist</a>
+    <a href="#pilot" class="btn-secondary">Apply for the pilot →</a>
+  </div>
+  <p class="hero-note">Free to join. First pilot spots are limited.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- THE PROBLEM -->
+<section class="section">
+  <p class="section-label">The problem</p>
+  <h2>Getting honest feedback on your idea is harder than building it</h2>
+  <p>You have a business idea. Maybe you've already started. You need honest, outside perspective before you commit more time, money, or energy. So what do you do?</p>
+  <ul class="problem-list">
+    <li>
+      <span class="problem-icon">✕</span>
+      <span><strong>Post on Reddit</strong> — get three responses, two of which are "cool idea bro"</span>
+    </li>
+    <li>
+      <span class="problem-icon">✕</span>
+      <span><strong>Ask friends and family</strong> — they love you too much to tell you the truth</span>
+    </li>
+    <li>
+      <span class="problem-icon">✕</span>
+      <span><strong>Hire a mentor</strong> — $300–500/hr for someone who may not understand your specific situation</span>
+    </li>
+    <li>
+      <span class="problem-icon">✕</span>
+      <span><strong>Post on LinkedIn</strong> — hope someone smart notices. Feedback is public, random, and performative</span>
+    </li>
+  </ul>
+  <p>None of these give you what you actually need: structured, honest critique from a peer who is equally invested in the process — because they need the same thing back.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<div class="how-bg">
+  <div class="how-inner">
+    <p class="section-label">How it works</p>
+    <h2>Give a great critique. Get a great critique.</h2>
+    <p>FounderCrit borrows the most powerful mechanic from writing critique communities — mutual obligation — and applies it to entrepreneurship.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Submit your profile</div>
+        <p class="step-body">Tell us what you're building, who it's for, what stage you're at, and what kind of feedback you need.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Get matched 1-on-1</div>
+        <p class="step-body">We pair you with a peer based on stage, industry, and feedback focus. A partner, not a forum.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Give your critique first</div>
+        <p class="step-body">Complete a structured, rubric-guided critique of your partner's idea. The rubric is what makes feedback actionable.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Receive yours simultaneously</div>
+        <p class="step-body">Once both critiques are complete, feedback is exchanged at the same time. Nobody sees theirs until they've given.</p>
+      </div>
+    </div>
+
+    <div class="rule-block">
+      <p class="rule-text">"You must give before you get. That's not a rule — it's what makes the feedback worth having."</p>
+    </div>
+  </div>
+</div>
+
+<!-- THE RUBRIC -->
+<section class="section">
+  <p class="section-label">The feedback rubric</p>
+  <h2>Structured feedback that actually moves you forward</h2>
+  <p>Every critique follows the same five-part rubric. No vague opinions. No random observations. Just specific, actionable feedback across the dimensions that matter most at your stage.</p>
+
+  <div class="rubric-grid">
+    <div class="rubric-card">
+      <div class="rubric-title">Viability</div>
+      <p class="rubric-body">Is there a real market? Can this make money? Who would actually pay for this?</p>
+    </div>
+    <div class="rubric-card">
+      <div class="rubric-title">Clarity</div>
+      <p class="rubric-body">Is the idea clearly defined? Could a stranger understand it in 60 seconds?</p>
+    </div>
+    <div class="rubric-card">
+      <div class="rubric-title">Blind spots</div>
+      <p class="rubric-body">What risks or obstacles might you be missing? What's the honest concern?</p>
+    </div>
+    <div class="rubric-card">
+      <div class="rubric-title">Resonance</div>
+      <p class="rubric-body">Does the brand, message, or positioning land? Is the story compelling?</p>
+    </div>
+    <div class="rubric-card" style="grid-column: span 2;">
+      <div class="rubric-title">Top 3 actions</div>
+      <p class="rubric-body">Concrete next steps your reviewer would take if this were their idea. Specific, prioritized, honest.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHO IT'S FOR -->
+<section class="section">
+  <p class="section-label">Who it's for</p>
+  <h2>For anyone building something — at any stage</h2>
+  <p>FounderCrit works at every stage of building, from the first idea to the first product launch.</p>
+
+  <div class="who-grid">
+    <div class="who-card">
+      <div class="who-title">Pre-founders</div>
+      <p class="who-desc">You have an idea but haven't started yet. The biggest underserved group.</p>
+    </div>
+    <div class="who-card">
+      <div class="who-title">Solopreneurs</div>
+      <p class="who-desc">One-person businesses who lack a team to pressure-test thinking.</p>
+    </div>
+    <div class="who-card">
+      <div class="who-title">Early-stage founders</div>
+      <p class="who-desc">Builders who want honest outside perspective before committing resources.</p>
+    </div>
+    <div class="who-card">
+      <div class="who-title">Small business owners</div>
+      <p class="who-desc">Established owners exploring new ideas, pivots, or expansions.</p>
+    </div>
+    <div class="who-card">
+      <div class="who-title">Side-project builders</div>
+      <p class="who-desc">People testing concepts before going all in.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER NOTE -->
+<div class="founder-bg">
+  <div class="founder-inner">
+    <p class="section-label">A note from the founder</p>
+    <blockquote>
+      "I've been a writer for years. The thing that made me better wasn't a course or a book — it was a peer critique platform where I had to give honest feedback to earn honest feedback back. I kept thinking: why doesn't this exist for founders? FounderCrit is my answer to that question."
+    </blockquote>
+    <div class="founder-sig">
+      <div class="founder-avatar">LT</div>
+      <div>
+        <div class="founder-name">Lauren Tyson</div>
+        <div class="founder-role">Founder, FounderCrit & Salt City Soapworks</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORMS -->
+<section class="forms-section" id="join">
+  <p class="section-label">Get involved</p>
+  <h2>Two ways to be part of what we're building</h2>
+  <p>FounderCrit is in early development. Join the waitlist to be first to know when we launch, or apply now to join our manual pilot — 5 founders, real critiques, no tech required.</p>
+
+  <div class="forms-grid">
+
+    <!-- WAITLIST -->
+    <div class="form-card">
+      <span class="form-badge">Waitlist</span>
+      <div class="form-title">Stay in the loop</div>
+      <p class="form-desc">Join the waitlist and be first to access FounderCrit when we launch. No spam, ever.</p>
+      <form id="waitlist-form" onsubmit="handleWaitlist(event)">
+        <div class="form-field">
+          <label for="w-name">Your name</label>
+          <input type="text" id="w-name" placeholder="Lauren Tyson" required>
+        </div>
+        <div class="form-field">
+          <label for="w-email">Email address</label>
+          <input type="email" id="w-email" placeholder="you@example.com" required>
+        </div>
+        <button type="submit" class="btn-primary form-submit">Join the waitlist</button>
+      </form>
+      <div class="success-msg" id="waitlist-success">
+        ✓ You're on the list! We'll be in touch when FounderCrit launches.
+      </div>
+    </div>
+
+    <!-- PILOT -->
+    <div class="form-card featured" id="pilot">
+      <span class="form-badge">Pilot — limited spots</span>
+      <div class="form-title">Apply for the pilot</div>
+      <p class="form-desc">5 founders. Real peer critique exchanges. Manually matched by Lauren. No app yet — just the process.</p>
+      <form id="pilot-form" onsubmit="handlePilot(event)">
+        <div class="form-field">
+          <label for="p-name">Your name</label>
+          <input type="text" id="p-name" placeholder="Lauren Tyson" required>
+        </div>
+        <div class="form-field">
+          <label for="p-email">Email address</label>
+          <input type="email" id="p-email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-field">
+          <label for="p-stage">What stage are you at?</label>
+          <select id="p-stage" required>
+            <option value="" disabled selected>Select your stage</option>
+            <option>I have an idea, haven't started yet</option>
+            <option>Early stage — working on it but pre-revenue</option>
+            <option>I have a product or business already running</option>
+            <option>I'm exploring a pivot or new direction</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="p-feedback">What kind of feedback do you need most?</label>
+          <textarea id="p-feedback" placeholder="e.g. I want to know if my idea is viable, and what I'm missing about the market..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary form-submit">Apply for the pilot</button>
+      </form>
+      <div class="success-msg" id="pilot-success">
+        ✓ Application received! Lauren will be in touch within 48 hours to confirm your spot.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">FounderCrit</div>
+  <p class="footer-note">Peer critique for founders. Built in Utah. &nbsp;·&nbsp; foundercrit.com</p>
+</footer>
+
+<script>
+  function handleWaitlist(e) {
+    e.preventDefault();
+    document.getElementById('waitlist-form').style.display = 'none';
+    document.getElementById('waitlist-success').style.display = 'block';
+  }
+
+  function handlePilot(e) {
+    e.preventDefault();
+    document.getElementById('pilot-form').style.display = 'none';
+    document.getElementById('pilot-success').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
+Done
