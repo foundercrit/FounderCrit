@@ -723,11 +723,11 @@
       <form id="waitlist-form" action="https://formspree.io/f/mdarknyd" method="POST">
         <div class="form-field">
           <label for="w-name">Your name</label>
-          <input type="text" id="w-name" placeholder="Lauren Tyson" required>
+          <input type="text" id="w-name" name="name" placeholder="Lauren Tyson" required>
         </div>
         <div class="form-field">
           <label for="w-email">Email address</label>
-          <input type="email" id="w-email" placeholder="you@example.com" required>
+          <input type="email" id="w-email" name="email" placeholder="you@example.com" required>
         </div>
         <input type="hidden" name="form_type" value="waitlist"><button type="submit" class="btn-primary form-submit">Join the waitlist</button>
       </form>
@@ -744,15 +744,15 @@
       <form id="pilot-form" action="https://formspree.io/f/mdarknyd" method="POST">
         <div class="form-field">
           <label for="p-name">Your name</label>
-          <input type="text" id="p-name" placeholder="Lauren Tyson" required>
+          <input type="text" id="p-name" name="name" placeholder="Lauren Tyson" required>
         </div>
         <div class="form-field">
           <label for="p-email">Email address</label>
-          <input type="email" id="p-email" placeholder="you@example.com" required>
+          <input type="email" id="p-email" name="email" placeholder="you@example.com" required>
         </div>
         <div class="form-field">
           <label for="p-stage">What stage are you at?</label>
-          <select id="p-stage" required>
+          <select id="p-stage" name="stage" required>
             <option value="" disabled selected>Select your stage</option>
             <option>I have an idea, haven't started yet</option>
             <option>Early stage — working on it but pre-revenue</option>
@@ -762,7 +762,7 @@
         </div>
         <div class="form-field">
           <label for="p-feedback">What kind of feedback do you need most?</label>
-          <textarea id="p-feedback" placeholder="e.g. I want to know if my idea is viable, and what I'm missing about the market..." required></textarea>
+          <textarea id="p-feedback" name="feedback" placeholder="e.g. I want to know if my idea is viable, and what I'm missing about the market..." required></textarea>
         </div>
         <input type="hidden" name="form_type" value="pilot"><button type="submit" class="btn-primary form-submit">Apply for the pilot</button>
       </form>
